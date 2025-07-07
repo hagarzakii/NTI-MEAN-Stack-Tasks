@@ -14,7 +14,7 @@ while (arr.length < 3) {
   const num = Number(input);
   
   if (isNaN(num)) {
-    alert("Invalid input Please enter a number.");
+    alert("Invalid input Please enter a number");
   } else {
     arr.push(num);
   }

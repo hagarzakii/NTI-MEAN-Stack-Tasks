@@ -19,19 +19,19 @@ const collectInfo = () => {
   const name = getValidInput(
     "Enter your full name (at least 2 characters):",
     isValidName,
-    "Invalid name Please enter at least 2 characters."
+    "Invalid name Enter at least 2 characters."
   )
   if (name === null) return;
 
   const phone = getValidInput(
-    "Enter your phone number (e.g., 012345678912):",
+    "Enter your phone number (ex: 012345678912):",
     isValidPhone,
-    "Invalid phone number! Use digits only."
+    "Invalid phone number Use digits only"
   )
   if (phone === null) return;
 
   const email = getValidInput(
-    "Enter your email (e.g., user@example.com):",
+    "Enter your email (ex: user@example.com):",
     isValidEmail,
     "Invalid email! Format: user@example.com"
   )
