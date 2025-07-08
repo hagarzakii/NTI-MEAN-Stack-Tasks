@@ -1,14 +1,21 @@
 //Task Four 
 
-const isValidName = (name) => String(name).length >= 2;
-const isValidPhone = (phone) => /^[\d\s\\(\)]{11,}$/.test(phone);
+const isValidName = (name) => {
+  const str = String(name);
+  return str.length >= 2 && !/^\d+$/.test(str);
+};
+
+const isValidPhone = (phone) => {
+  return /^(\+\d{1,3}\s?)?(\(\d{3}\)|\d{3})[\s\-]?\d{3}[\s\-]?\d{4}$/.test(phone);
+};
+
 const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
 const getValidInput = (message, validationFn, error) => {
   let input;
   do {
     input = prompt(message);
-    if (input === null) return null;
+    if (input === null) return;
     if (!validationFn(input)) alert(error);
   } while (!validationFn(input));
   return input;
@@ -17,7 +24,7 @@ const getValidInput = (message, validationFn, error) => {
 const collectInfo = () => {
 
   const name = getValidInput(
-    "Enter your full name (at least 2 characters):",
+    "Enter your name (at least 2 characters):",
     isValidName,
     "Invalid name Enter at least 2 characters."
   )
@@ -26,7 +33,7 @@ const collectInfo = () => {
   const phone = getValidInput(
     "Enter your phone number (ex: 012345678912):",
     isValidPhone,
-    "Invalid phone number Use digits only"
+    "Invalid phone number Use numbers only (ex: 012345678912)"
   )
   if (phone === null) return;
 

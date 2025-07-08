@@ -35,4 +35,6 @@ function isPalindrome(word, consideringCase){
 let word = prompt("Enter a word :");
 let consideringCase = prompt("Do you want to consider the Case? T/F");
 
-console.log(isPalindrome(word, consideringCase));
+const res = isPalindrome(word, consideringCase);
+
+console.log(res);
