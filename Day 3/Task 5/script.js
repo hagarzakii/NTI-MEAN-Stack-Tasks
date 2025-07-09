@@ -1,30 +1,13 @@
 //Task Five
 
-document.addEventListener('keydown', function (event) {
-    const key = event.key;
+const numberInput = document.getElementById('numberInput');
 
-    let asciiCode = '';
-    if (key.length === 1) {
-        asciiCode = key.charCodeAt(0);
+numberInput.addEventListener('input', function(event) {
+    let inputValue = event.target.value;
+    
+    let numbersOnly = inputValue.replace(/[^0-9]/g, '');
+    
+    if (inputValue !== numbersOnly) {
+        event.target.value = numbersOnly;
     }
-
-    let message = `Key: "${key}"`;
-
-    if (asciiCode) {
-        message += `\nASCII Code: ${asciiCode}`;
-    }
-
-    if (event.altKey) {
-        message += '\nALT KEY detected';
-    }
-
-    if (event.ctrlKey) {
-        message += '\nCTRL KEY detected';
-    }
-
-    if (event.shiftKey) {
-        message += '\nSHIFT KEY detected';
-    }
-
-    alert(message);
 });
