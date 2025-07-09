@@ -1,30 +1,23 @@
 //Task One
 
-// Get DOM elements
 const originalImg = document.getElementById("image");
 const header = document.getElementById("header");
 
 header.removeChild(originalImg);
 
-Object.assign(originalImg.style, {
-    position: "absolute",
-    top: "20px",
-    right: "20px",
-    width: "200px"
-});
+originalImg.style.position = "absolute";
+originalImg.style.top = "20px";
+originalImg.style.right = "20px";
+originalImg.style.width = "200px";
 document.body.appendChild(originalImg);
 
 const leftImg = originalImg.cloneNode(true);
-Object.assign(leftImg.style, {
-    position: "absolute",
-    top: "500px",
-    left: "20px",
-    width: "200px"
-});
+leftImg.style.position = "absolute";
+leftImg.style.top = "500px";
+leftImg.style.left = "20px";
+leftImg.style.width = "200px";
 document.body.appendChild(leftImg);
 
 const navigation = document.getElementById("navigation");
-Object.assign(navigation.style, {
-    marginTop: "150px",
-    display: "inline-block"
-});
+navigation.style.marginTop = "150px";
+navigation.style.display = "inline-block";
