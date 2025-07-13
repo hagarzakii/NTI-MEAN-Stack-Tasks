@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Posts</title>
+  <style>
+body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #D6A5B3;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1, h2 { 
+      color: #ffffff;
+    }
+
+    .card {
+      background-color: #505665;
+      border: 2px solid #ffc0cb;
+      border-radius: 16px;
+      padding: 20px;
+      margin: 15px auto;
+      max-width: 600px;
+      box-shadow: 0 4px 8px rgba(199, 21, 133, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    a {
+      display: inline-block;
+      background-color: #D6A5B3;
+      color: #505665;
+      padding: 10px 18px;
+      margin-top: 15px;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: background-color 0.3s ease;
+    }
+
+    a:hover {
+      background-color: #ffc0cb;
+    }
+
+    .back-link {
+      margin-bottom: 20px;
+    }
+
+    .back-link a {
+      font-size: 14px;
+      color: #505665;
+      text-decoration: none;
+      background-color: #ffe4e1;
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid #ffc0cb;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-link a:hover {
+      background-color: #ffc0cb;
+    }
+    P{
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  {% if body %}
+    <!-- DETAIL VIEW -->
+    <div class="card">
+      <h2>{{ title }}</h2>
+      <p>{{ body }}</p>
+      <div class="back-link">
+        <a href="/home">← Back to Home</a>
+      </div>
+    </div>
+  {% else %}
+    <!-- LIST VIEW -->
+    {% for post in posts %}
+      <div class="card">
+        <h1>ID:{{ post.id }}</h1>
+        <h2>{{ post.title }}</h2>
+        <a href="/post?id={{ post.id }}">View Details</a>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+</body>
+</html>
